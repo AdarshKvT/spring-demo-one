@@ -25,7 +25,6 @@
 
 	<bean id="myFootballCoach"
 		class="com.kvtsoft.springdemo.FootballCoach">
-
 		<!-- setup our setter injection -->
 		<property name="fortuneService" ref="myFortuneService"></property>
 
@@ -35,6 +34,7 @@
 
 		<property name="team" value="${foo.team}" />
 		<property name="emailAddress" value="${foo.email}"></property>
+
 
 	</bean>
 

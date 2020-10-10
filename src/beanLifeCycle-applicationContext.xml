@@ -7,35 +7,16 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- load the properties file -->
-	<context:property-placeholder
-		location="classpath:sports.properties" />
-
 	<!-- Define your beans here -->
 	<!-- define the dependency -->
 	<bean id="myFortuneService"
 		class="com.kvtsoft.springdemo.FortuneServiceImp">
 	</bean>
 
-	<bean id="myCoach" class="com.kvtsoft.springdemo.BaseballCoach">
+	<bean id="myCoach" class="com.kvtsoft.springdemo.TrackCoach"
+		init-method="doMyStartUpStuff" destroy-method="doMyCleanUpStuff">
 		<!-- setup constructor injection -->
-		<constructor-arg ref="myFortuneService">
-		</constructor-arg>
-	</bean>
-
-	<bean id="myFootballCoach"
-		class="com.kvtsoft.springdemo.FootballCoach">
-		<!-- setup our setter injection -->
-		<property name="fortuneService" ref="myFortuneService"></property>
-
-		<!-- inject literal injection -->
-		<!-- <property name="emailAddress" value="liverpool@footballclub.com"></property> 
-			<property name="team" value="Liverpool"></property> -->
-
-		<property name="team" value="${foo.team}" />
-		<property name="emailAddress" value="${foo.email}"></property>
-
-
+	
 	</bean>
 
 
